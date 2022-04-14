@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../../data/data.json';
+import {data} from '../../data/data';
 import './project_item.css';
 
 const ProjectItem = () => {
@@ -7,13 +7,12 @@ const ProjectItem = () => {
     return (
     
       <div className="container projects__container">
-        <div className="test">test</div>
-        {
-        data.map((data) => {
-          
-
-        <article key = {data.id} className="project__item">
-        <div className="project__item-image">
+        
+      {
+        data.map((data,key) => {
+          return (
+            <article key = {key} className="project__item">
+          <div className="project__item-image">
             {/* <img src={image} alt={title} /> */}
           </div>
           <h3>{data.title}</h3>
@@ -23,10 +22,10 @@ const ProjectItem = () => {
           </div>
           
         </article>
-        }
-        )
-        }
-        </div>
+          )
+        })
+      } 
+      </div>
           
   )
 }
